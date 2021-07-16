@@ -79,6 +79,10 @@ class CmdbCsvDataSource {
           recordOutcomeDescriptions.push(outcomeDescription);
         }
 
+        if (regulationSection === '' || !regulationSection){
+          outcomeDescription = 'No compliance issues identified.';
+        }
+
         // need to await here because some rows are duplicate records
         await this.processRecord(this.csvRows[i], recordTypeConfig, outcomeDescription);
 
